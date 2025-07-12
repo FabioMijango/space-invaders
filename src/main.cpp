@@ -1,10 +1,15 @@
 #include <SFML/Graphics.hpp>
 
+#include "ResourceManager.hpp"
+
+
 int main()
 {
     auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "Space Invaders");
     window.setFramerateLimit(60);
 
+	ResourceManager resourceManager;
+	resourceManager.init();
 
 
     while (window.isOpen())
