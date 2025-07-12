@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "ResourceManager.hpp"
+#include "Renderer.hpp"
 
 
 int main()
@@ -10,6 +11,8 @@ int main()
 
 	ResourceManager resourceManager;
 	resourceManager.init();
+
+    Renderer renderer(window, resourceManager);
 
 
     while (window.isOpen())
@@ -43,6 +46,7 @@ int main()
         }
 
         window.clear();
+		renderer.draw();
         window.display();
     }
 }
