@@ -6,7 +6,7 @@
 
 int main()
 {
-    auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "Space Invaders");
+    auto window = sf::RenderWindow(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "Space Invaders");
     window.setFramerateLimit(60);
 
 	ResourceManager resourceManager;
@@ -45,8 +45,7 @@ int main()
         
         }
 
-        window.clear();
 		renderer.draw();
-        window.display();
+
     }
 }
