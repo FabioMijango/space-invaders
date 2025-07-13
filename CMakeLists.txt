@@ -17,6 +17,7 @@ add_executable(
     src/ResourceManager.cpp
     src/Renderer.cpp
     src/Entities/Player.cpp
+    src/EntityManager.cpp
 )
    
 target_compile_features(main PRIVATE cxx_std_17)
