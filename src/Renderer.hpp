@@ -18,7 +18,7 @@ class Renderer
 {
 public:
 	Renderer() = delete;
-	Renderer(sf::RenderWindow& window, ResourceManager& resourceManager);
+	Renderer(sf::RenderWindow& window, ResourceManager& resourceManager, Player& player);
 
 	void draw();
 
@@ -26,7 +26,7 @@ private:
 	sf::RenderWindow& window;
 	ResourceManager& resourceManager;
 
-	Player player;
+	Player& player;
 
 	void drawBackground();
 	void drawEntities();

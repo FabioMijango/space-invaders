@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "ResourceManager.hpp"
+#include "EntityManager.hpp"
 #include "Renderer.hpp"
 
 
@@ -12,7 +13,11 @@ int main()
 	ResourceManager resourceManager;
 	resourceManager.init();
 
-    Renderer renderer(window, resourceManager);
+	sf::Clock clock;
+    float deltaTime = clock.restart().asSeconds();
+	EntityManager entityManager(resourceManager);
+
+    Renderer renderer(window, resourceManager, entityManager.getPlayer());
 
 
     while (window.isOpen())
@@ -44,6 +49,12 @@ int main()
             }
         
         }
+
+
+
+		deltaTime = clock.restart().asSeconds();
+
+		entityManager.update(deltaTime);
 
 		renderer.draw();
 

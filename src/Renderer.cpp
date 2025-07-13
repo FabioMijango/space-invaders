@@ -3,8 +3,8 @@
 #include "Renderer.hpp"
 
 
-Renderer::Renderer(sf::RenderWindow& w, ResourceManager& rm)  
-   : window(w), resourceManager(rm), player(Player(resourceManager.playerTexture, sf::Vector2f(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 100)))
+Renderer::Renderer(sf::RenderWindow& w, ResourceManager& rm, Player& p)  
+   : window(w), resourceManager(rm), player(p)
 {
 }
 
