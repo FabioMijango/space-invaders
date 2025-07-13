@@ -27,5 +27,3 @@ sf::FloatRect Enemy::getBounds() const
     return sf::FloatRect({});
 }
 
-void Enemy::destroy() {
-}
