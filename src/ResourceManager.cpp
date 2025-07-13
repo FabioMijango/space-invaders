@@ -1,8 +1,7 @@
 // Resource Manager
 #include "ResourceManager.hpp"
 
-void ResourceManager::init()
-{
+ResourceManager::ResourceManager() {
 	loadTextures();
 	loadSounds();
 	loadFonts();

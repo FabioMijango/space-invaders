@@ -11,7 +11,7 @@
 
 class ResourceManager {
 public:
-	void init();
+	ResourceManager();
 
 	sf::Texture playerTexture;
 	std::vector<std::vector<sf::Texture>> enemyTextures;

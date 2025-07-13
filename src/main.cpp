@@ -11,14 +11,13 @@ int main()
     window.setFramerateLimit(60);
 
 	ResourceManager resourceManager;
-	resourceManager.init();
 
-	sf::Clock clock;
-    float deltaTime = clock.restart().asSeconds();
 	EntityManager entityManager(resourceManager);
 
     Renderer renderer(window, resourceManager, entityManager.getPlayer(), entityManager.getEnemies());
 
+    sf::Clock clock;
+    float deltaTime = clock.restart().asSeconds();
 
     while (window.isOpen())
     {
