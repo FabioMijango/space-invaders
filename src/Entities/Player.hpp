@@ -16,5 +16,5 @@ public:
 
 private:
     sf::Sprite sprite;
-    float velocity = 200.f;
+    float velocity = 400.f;
 };
