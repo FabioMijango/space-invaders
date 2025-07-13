@@ -5,7 +5,7 @@
 
 class Enemy : public Entity {
 public:
-    Enemy();
+    Enemy(const sf::Texture& texture, sf::Vector2f position, int healt = 1);
 
     void update(float deltaTime) override;
     void render(sf::RenderWindow& window) override;
