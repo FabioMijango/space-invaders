@@ -4,7 +4,7 @@
 Player::Player(const sf::Texture& t, sf::Vector2f pos)
 	: sprite(sf::Sprite(t))
 {
-	sprite.setScale({ 6.f, 6.f });
+	sprite.setScale({ 7.f, 7.f });
 	sprite.setPosition(pos);
 }
 
@@ -15,7 +15,7 @@ void Player::update(float deltaTime)
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && sprite.getPosition().x > 0)
         movement.x -= velocity * deltaTime;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && sprite.getPosition().x < 1080) // TODO : Replace with actual screen width
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && sprite.getPosition().x < WINDOW_WIDTH)
         movement.x += velocity * deltaTime;
 
 	sprite.move(movement);
