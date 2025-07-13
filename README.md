@@ -23,5 +23,5 @@ This project uses assets from [Invaders from Outer Space](https://comp3interacti
 
 ### B. Using Visual Studio
    1. Clone repository
-   2. Open folder with Visual Studio, make sure you installed previusly the cmake tools
+   2. Open folder with Visual Studio, make sure you installed previously the cmake tools
 
