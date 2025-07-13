@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Entity.hpp"
+#include "../Utils/Constants.hpp"
 
 // Player.hpp
 class Player : public Entity {

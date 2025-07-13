@@ -9,9 +9,6 @@
 #include "./Entities/Player.hpp"
 
 
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
-
 #define BACKGROUND_COLOR sf::Color(0, 43, 64)
 
 class Renderer

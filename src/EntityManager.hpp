@@ -6,6 +6,7 @@
 #include "Renderer.hpp"
 #include "./Entities/Entity.hpp"
 #include "./Entities/Player.hpp"
+#include "./Utils/Constants.hpp"
 
 
 class EntityManager
