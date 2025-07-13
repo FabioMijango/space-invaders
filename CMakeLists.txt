@@ -15,9 +15,10 @@ FetchContent_MakeAvailable(SFML)
 add_executable(
     main src/main.cpp 
     src/ResourceManager.cpp
+    src/EntityManager.cpp
     src/Renderer.cpp
     src/Entities/Player.cpp
-    src/EntityManager.cpp
+    src/Entities/Enemy.cpp
 )
    
 target_compile_features(main PRIVATE cxx_std_17)

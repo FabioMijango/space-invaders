@@ -17,7 +17,7 @@ int main()
     float deltaTime = clock.restart().asSeconds();
 	EntityManager entityManager(resourceManager);
 
-    Renderer renderer(window, resourceManager, entityManager.getPlayer());
+    Renderer renderer(window, resourceManager, entityManager.getPlayer(), entityManager.getEnemies());
 
 
     while (window.isOpen())
