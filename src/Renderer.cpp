@@ -2,13 +2,11 @@
 
 #include "Renderer.hpp"
 
-#include <iostream>
 
 
 Renderer::Renderer(sf::RenderWindow& w, ResourceManager& rm, Player& p, std::vector<Enemy>& enemy)
    : window(w), resourceManager(rm), player(p), enemy(enemy)
 {
-	std::cout << enemy.size() << std::endl;
 }
 
 void Renderer::draw()
