@@ -19,6 +19,7 @@ add_executable(
     src/Renderer.cpp
     src/Entities/Player.cpp
     src/Entities/Enemy.cpp
+    src/Entities/Level.cpp
 )
    
 target_compile_features(main PRIVATE cxx_std_17)
