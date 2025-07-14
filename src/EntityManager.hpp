@@ -3,6 +3,7 @@
 
 
 #include "ResourceManager.hpp"
+#include "LevelManager.hpp"
 #include "Renderer.hpp"
 #include "./Entities/Entity.hpp"
 #include "./Entities/Player.hpp"
@@ -24,8 +25,13 @@ public:
 
 	std::vector<Enemy>& getEnemies();
 
+	Level& getCurrentLevel();
+
 
 private:
+	int currentLevel = 0;
+	LevelManager levelManager;
+
 	Player player;
 	std::vector<Enemy> enemies;
 	//std::vector<Structure> structures;
