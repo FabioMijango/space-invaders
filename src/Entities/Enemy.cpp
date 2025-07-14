@@ -1,11 +1,13 @@
 
 #include "Enemy.hpp"
 
-Enemy::Enemy(const sf::Texture& t, sf::Vector2f position, int healt)
-    : sprite(sf::Sprite(t)), healt(healt)
+Enemy::Enemy(std::vector<sf::Texture>& textures, sf::Vector2f position, int health )
+    :sprite(sf::Sprite(textures[0])),
+    textures(textures),
+    health(health)
 {
-    sprite.setPosition(position);
     sprite.setScale({7.f, 7.f});
+    sprite.setPosition(position);
 }
 
 void Enemy::update(float deltaTime)
@@ -17,9 +19,13 @@ void Enemy::render(sf::RenderWindow &window)
     window.draw(sprite);
 }
 
+std::vector<sf::Texture> &Enemy::getTextures() const {
+    return textures;
+}
+
 sf::Vector2f Enemy::getPosition() const
 {
-    return sprite.getPosition();
+    return {};
 }
 
 sf::FloatRect Enemy::getBounds() const
