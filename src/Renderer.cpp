@@ -26,9 +26,8 @@ void Renderer::drawEntities()
 {
 	player.render(window);
 
-	for (int i = 0; i < enemy.size(); i++)
-	{
-		enemy[i].render(window);
+	for (Enemy e : enemy) {
+		e.render(window);
 	}
 }
 
