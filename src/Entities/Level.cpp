@@ -1,8 +1,12 @@
 
 #include "./Level.hpp"
 
+int Level::levelCounter = 0;
+
 Level::Level(const std::pair<int, int> levelSize, const int enemySpeed, const int structureHealth)
-    : levelSize(levelSize), enemySpeed(enemySpeed), structureHealth(structureHealth)
+    : levelSize(levelSize),
+    enemySpeed(enemySpeed),
+    structureHealth(structureHealth)
 {
     levelNumber = levelCounter++;
 }

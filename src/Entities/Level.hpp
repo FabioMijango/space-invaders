@@ -4,6 +4,7 @@
 
 #define DEFAULT_LEVEL_SIZE std::make_pair(11, 5)
 #define DEFAULT_STRUCTURE_HEALTH 3
+#define DEFAULT_ENEMY_SPEED 100
 
 class Level {
 public:
@@ -27,5 +28,3 @@ private:
     int structureHealth;
 
 };
-
-int Level::levelCounter = 0;
