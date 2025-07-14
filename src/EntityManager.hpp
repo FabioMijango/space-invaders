@@ -30,7 +30,7 @@ private:
 	std::vector<Enemy> enemies;
 	//std::vector<Structure> structures;
 
-	ResourceManager resourceManager;
+	ResourceManager& resourceManager;
 
 	sf::Clock clock;
 };
