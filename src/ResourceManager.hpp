@@ -14,6 +14,7 @@ public:
 	ResourceManager();
 
 	sf::Texture playerTexture;
+	sf::Texture shootTexture;
 	std::vector<std::vector<sf::Texture>> enemyTextures;
 	std::vector<sf::Texture> structureTextures;
 	std::vector<sf::Texture> sfxTextures;

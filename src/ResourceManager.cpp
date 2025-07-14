@@ -41,6 +41,14 @@ void ResourceManager::loadTextures()
 	playerTexture = loadTexture(
 		std::string(RES) + std::string(PLAYER_SPRITE)
 	);
+	shootTexture = loadTexture(
+		std::string(RES) + std::string(SFX_SPRITES),
+		sf::IntRect(
+			{7, 0},
+
+			{1, 7}
+			)
+		);
 
 
 	//Structure textures
