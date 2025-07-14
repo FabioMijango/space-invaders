@@ -14,7 +14,7 @@ int main()
 
 	EntityManager entityManager(resourceManager);
 
-    Renderer renderer(window, resourceManager, entityManager.getPlayer(), entityManager.getEnemies());
+    Renderer renderer(window, resourceManager, entityManager.getPlayer(), entityManager.getLevelEnemies());
 
     sf::Clock clock;
     float deltaTime = clock.restart().asSeconds();
