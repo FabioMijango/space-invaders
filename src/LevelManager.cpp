@@ -1,7 +1,7 @@
 
 #include "LevelManager.hpp"
 
-#include <SFML/System/Exception.hpp>
+#include "./Utils/Constants.hpp"
 
 LevelManager::LevelManager() {
     levels.clear();
@@ -14,4 +14,35 @@ LevelManager::LevelManager() {
 Level& LevelManager::getLevel(const int index) {
     return levels[index];
 
+}
+
+void LevelManager::startLevel(int index, const std::vector<Enemy>& enemiesVector) {
+    if (activeLevel)
+        return;
+    //TODO Assuming index is valid, fix later
+
+    const Level& level = levels[index];
+
+    int totalEnemies = level.getLvlSize().first * level.getLvlSize().second;
+
+    levelEnemies.clear();
+
+    for (int i = 0; i < level.getLvlSize().first; i++) {
+        for (int j = 0; j < level.getLvlSize().second; j++) {
+            Enemy e = Enemy(
+                enemiesVector[j].getTextures(),
+                sf::Vector2f(
+                    (i * ENEMY_WIDTH) + (i * ENEMY_SPACING.x) * 7,
+                    (j * ENEMY_HEIGHT) + (j * ENEMY_SPACING.y) * 7
+                ),
+                1
+                );
+            levelEnemies.emplace_back(e);
+        }
+    }
+    activeLevel = true;
+}
+
+bool LevelManager::isActiveLevel() {
+    return activeLevel;
 }
