@@ -5,16 +5,26 @@ EntityManager::EntityManager(ResourceManager& resourceManager)
 	player(Player(resourceManager.playerTexture, sf::Vector2f(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 100))),
 	resourceManager(resourceManager)
 {
-	Enemy e = Enemy(resourceManager.enemyTextures[0][0], sf::Vector2f(500, 500), 1);
-	enemies.push_back(e);
+
+	// TODO Change the player init
+
+	// Initialize enemies
+	for (int i = 0; i < resourceManager.enemyTextures.size(); i++) {
+		enemies.push_back(
+			Enemy(
+				resourceManager.enemyTextures[1],
+				sf::Vector2f(100.f * 1, 100.f),
+				1) // TODO Implement health system
+		);
+	}
 }
 
-void EntityManager::addEntity(std::unique_ptr<Entity> entity)
-{
-}
 
 void EntityManager::update(float deltaTime)
 {
+	if (!levelManager.isActiveLevel()) {
+		levelManager.startLevel(currentLevel, enemies);
+	}
 	//Player
 	player.update(deltaTime);
 }
@@ -22,6 +32,10 @@ void EntityManager::update(float deltaTime)
 Player& EntityManager::getPlayer()
 {
 	return player;
+}
+
+std::vector<Enemy> & EntityManager::getLevelEnemies()  {
+	return levelManager.levelEnemies;
 }
 
 std::vector<Enemy>& EntityManager::getEnemies() {

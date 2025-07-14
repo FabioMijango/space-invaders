@@ -16,7 +16,6 @@ class EntityManager
 public:
 	EntityManager(ResourceManager& resourceManager);
 
-	void addEntity(std::unique_ptr<Entity> entity);
 
 	void update(float deltaTime);
 
@@ -26,6 +25,8 @@ public:
 	std::vector<Enemy>& getEnemies();
 
 	Level& getCurrentLevel();
+
+	std::vector<Enemy>& getLevelEnemies();
 
 
 private:
