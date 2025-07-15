@@ -28,6 +28,10 @@ EntityManager::EntityManager(ResourceManager& resourceManager)
 
 void EntityManager::update(float deltaTime)
 {
+	if (clock.getElapsedTime() > sf::seconds(1)){
+		clock.restart();
+		levelManager.changeTexture();
+	}
 	if (!levelManager.isActiveLevel()) {
 		levelManager.startLevel(currentLevel, enemies);
 	}
