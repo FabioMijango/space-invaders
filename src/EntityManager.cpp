@@ -32,12 +32,23 @@ void EntityManager::update(float deltaTime)
 		clock.restart();
 		levelManager.changeTexture();
 	}
+
 	if (!levelManager.isActiveLevel()) {
 		levelManager.startLevel(currentLevel, enemies);
 	}
 	//Player
 	player.update(deltaTime);
+
+	const auto lvlEnem = levelManager.levelEnemies;
+	for (int i = 0; i < lvlEnem.size(); i++) {
+		if (player.getShootBounds().findIntersection(lvlEnem[i].getBounds())) {
+			player.enemyGetHit();
+			levelManager.isEnemyDead[i]	= true;
+			levelManager.levelEnemies[i].setPosition(sf::Vector2f(-100.f, -100.f)); // Move enemy off-screen
+		}
+	}
 }
+
 
 Player& EntityManager::getPlayer()
 {
@@ -46,6 +57,9 @@ Player& EntityManager::getPlayer()
 
 std::vector<Enemy> & EntityManager::getLevelEnemies()  {
 	return levelManager.levelEnemies;
+}
+std::vector<bool> & EntityManager::getIsEnemyDead() {
+	return levelManager.isEnemyDead;
 }
 
 std::vector<Enemy>& EntityManager::getEnemies() {

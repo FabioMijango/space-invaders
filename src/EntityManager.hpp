@@ -27,6 +27,7 @@ public:
 	Level& getCurrentLevel();
 
 	std::vector<Enemy>& getLevelEnemies();
+	std::vector<bool>& getIsEnemyDead();
 
 
 private:
