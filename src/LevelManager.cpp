@@ -29,17 +29,17 @@ void LevelManager::startLevel(int index, const std::vector<Enemy>& enemiesVector
 
     for (int i = 0; i < level.getLvlSize().first; i++) {
         for (int j = 0; j < level.getLvlSize().second; j++) {
-            Enemy e = Enemy(
+            levelEnemies.emplace_back(
                 enemiesVector[j].getTextures(),
                 sf::Vector2f(
                     (i * ENEMY_WIDTH) + (i * ENEMY_SPACING.x) * 7,
-                    (j * ENEMY_HEIGHT) + (j * ENEMY_SPACING.y) * 7
-                ),
-                1
-                );
-            levelEnemies.emplace_back(e);
+                    (j * ENEMY_HEIGHT) + (j * ENEMY_SPACING.y) * 7),
+                    1
+            );
         }
     }
+    isEnemyDead.clear();
+    isEnemyDead.resize(levelEnemies.size(), false);
     activeLevel = true;
 }
 

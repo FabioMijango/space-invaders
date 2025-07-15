@@ -15,6 +15,8 @@ public:
     bool isActiveLevel();
     std::vector<Enemy> levelEnemies;
 
+    std::vector<bool> isEnemyDead;
+
 private:
     std::vector<Level> levels;
     bool activeLevel = false;
