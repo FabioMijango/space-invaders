@@ -17,7 +17,11 @@ public:
 
     std::vector<bool> isEnemyDead;
 
+    void changeTexture();
+
 private:
     std::vector<Level> levels;
     bool activeLevel = false;
+
+    short textureCounter = 0;
 };

@@ -43,6 +43,13 @@ void LevelManager::startLevel(int index, const std::vector<Enemy>& enemiesVector
     activeLevel = true;
 }
 
+void LevelManager::changeTexture() {
+    for (int i = 0; i < levelEnemies.size(); i++) {
+        levelEnemies[i].changeTexture(textureCounter);
+    }
+    textureCounter = (textureCounter + 1) % 2;
+}
+
 bool LevelManager::isActiveLevel() const {
     return activeLevel;
 }
