@@ -11,8 +11,12 @@ public:
     void render(sf::RenderWindow& window) override;
 
     std::vector<sf::Texture> &getTextures() const;
+    void changeTexture();
+
     sf::Vector2f getPosition() const override;
     sf::FloatRect getBounds() const override;
+
+    void changeTexture(int textureIndex);
 
 private:
     sf::Sprite sprite;
