@@ -30,6 +30,6 @@ sf::Vector2f Enemy::getPosition() const
 
 sf::FloatRect Enemy::getBounds() const
 {
-    return sf::FloatRect({});
+    return sprite.getGlobalBounds();
 }
 
