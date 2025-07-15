@@ -39,7 +39,8 @@ void Player::update(float deltaTime)
 }
 
 void Player::enemyGetHit() {
-	activeShoot = false;
+	activeShoot = true;
+	shootSprite.setPosition(getPosition() + sf::Vector2f(25.f, 0.f));
 }
 
 sf::FloatRect Player::getShootBounds() const {
