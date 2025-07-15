@@ -1,8 +1,14 @@
 #include "EntityManager.hpp"
 
+#include <iostream>
+
 EntityManager::EntityManager(ResourceManager& resourceManager)
 	: levelManager(LevelManager()),
-	player(Player(resourceManager.playerTexture, sf::Vector2f(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 100))),
+	player(Player(
+		resourceManager.playerTexture,
+		sf::Vector2f(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 100),
+		resourceManager.shootTexture
+		)),
 	resourceManager(resourceManager)
 {
 
