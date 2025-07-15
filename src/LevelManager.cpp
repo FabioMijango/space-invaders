@@ -43,6 +43,6 @@ void LevelManager::startLevel(int index, const std::vector<Enemy>& enemiesVector
     activeLevel = true;
 }
 
-bool LevelManager::isActiveLevel() {
+bool LevelManager::isActiveLevel() const {
     return activeLevel;
 }

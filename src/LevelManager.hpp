@@ -12,7 +12,7 @@ public:
 
     void startLevel(int index, const std::vector<Enemy>& enemiesVector);
 
-    bool isActiveLevel();
+    bool isActiveLevel() const;
     std::vector<Enemy> levelEnemies;
 
     std::vector<bool> isEnemyDead;

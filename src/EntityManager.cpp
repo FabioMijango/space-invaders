@@ -15,10 +15,10 @@ EntityManager::EntityManager(ResourceManager& resourceManager)
 	// TODO Change the player init
 
 	// Initialize enemies
-	for (int i = 0; i < resourceManager.enemyTextures.size(); i++) {
+	for (int i = resourceManager.enemyTextures.size() - 1; i >= 0; i--) {
 		enemies.push_back(
 			Enemy(
-				resourceManager.enemyTextures[1],
+				resourceManager.enemyTextures[i],
 				sf::Vector2f(100.f * 1, 100.f),
 				1) // TODO Implement health system
 		);
