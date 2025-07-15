@@ -16,7 +16,7 @@ class Renderer
 {
 public:
 	Renderer() = delete;
-	Renderer(sf::RenderWindow& window, ResourceManager& resourceManager, Player& player, std::vector<Enemy>& enemy); //TODO make a better constructor
+	Renderer(sf::RenderWindow& window, ResourceManager& resourceManager, Player& player, std::vector<Enemy>& enemy, std::vector<bool>& isEnemyDead); //TODO make a better constructor
 
 	void draw();
 
@@ -26,6 +26,7 @@ private:
 
 	Player& player;
 	std::vector<Enemy>& enemy;
+	std::vector<bool>& isEnemyDead;
 
 	void drawBackground();
 	void drawEntities();
