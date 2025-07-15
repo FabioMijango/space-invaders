@@ -27,6 +27,10 @@ std::vector<sf::Texture> &Enemy::getTextures() const {
     return textures;
 }
 
+void Enemy::setPosition(const sf::Vector2f &position) {
+    sprite.setPosition(position);
+}
+
 sf::Vector2f Enemy::getPosition() const
 {
     return {};
