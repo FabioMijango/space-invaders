@@ -32,8 +32,8 @@ void LevelManager::startLevel(int index, const std::vector<Enemy>& enemiesVector
             levelEnemies.emplace_back(
                 enemiesVector[j].getTextures(),
                 sf::Vector2f(
-                    (i * ENEMY_WIDTH) + (i * ENEMY_SPACING.x) * 7,
-                    (j * ENEMY_HEIGHT) + (j * ENEMY_SPACING.y) * 7),
+                    (i * ENEMY_WIDTH) + (i * ENEMY_SPACING.x) * 7.f + 50.f,
+                    (j * ENEMY_HEIGHT) + (j * ENEMY_SPACING.y) * 7.f + 50.f),
                     1
             );
         }
