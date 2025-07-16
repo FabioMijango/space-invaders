@@ -26,12 +26,14 @@ EntityManager::EntityManager(ResourceManager& resourceManager)
 
 void EntityManager::update(float deltaTime)
 {
+	std::vector<Enemy>& _enemies = levelManager.levelEnemies;
+
 	if (clock.getElapsedTime() > sf::seconds(1)){
 		clock.restart();
 		levelManager.changeTexture();
 
 		//Not the best way to do this, but it works for now
-		for (auto& enemy : levelManager.levelEnemies) {
+		for (auto& enemy : _enemies) {
 			enemy.update(deltaTime);
 		}
 	}
@@ -43,12 +45,12 @@ void EntityManager::update(float deltaTime)
 	player.update(deltaTime);
 
 	// IS HORRIBLE, BUT IT WORKS... I'm sorry
-	for (int i = 0; i < levelManager.levelEnemies.size(); i++) {
+	for (int i = 0; i < _enemies.size(); i++) {
 
-		if (player.getShootBounds().findIntersection(levelManager.levelEnemies[i].getBounds())) {
+		if (player.getShootBounds().findIntersection(_enemies[i].getBounds())) {
 			player.enemyGetHit();
 			levelManager.isEnemyDead[i]	= true;
-			levelManager.levelEnemies[i].setPosition(sf::Vector2f(-100.f, -100.f)); // Move enemy off-screen
+			_enemies[i].setPosition(sf::Vector2f(-100.f, -100.f)); // Move enemy off-screen
 		}
 	}
 }
