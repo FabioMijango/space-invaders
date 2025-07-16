@@ -22,8 +22,8 @@ public:
 private:
     sf::Sprite sprite;
     std::vector<sf::Texture>& textures;
-    sf::Vector2f direction;
+    short direction;
 
-    int health{};
+    int health;
     float velocity = 400.f;
 };

@@ -2,9 +2,10 @@
 #include "Enemy.hpp"
 
 Enemy::Enemy(std::vector<sf::Texture>& textures, sf::Vector2f position, int health )
-    :sprite(sf::Sprite(textures[1])),
-    textures(textures),
-    health(health)
+    : sprite(sf::Sprite(textures[1])),
+        textures(textures),
+        direction(1),
+        health(health)
 {
     sprite.setScale({7.f, 7.f});
     sprite.setPosition(position);
@@ -12,6 +13,10 @@ Enemy::Enemy(std::vector<sf::Texture>& textures, sf::Vector2f position, int heal
 
 void Enemy::update(float deltaTime)
 {
+    sprite.move(sf::Vector2f(
+        velocity * direction * deltaTime,
+        0.f
+        ));
 }
 
 void Enemy::changeTexture(int textureIndex) {
