@@ -1,7 +1,5 @@
 #include "EntityManager.hpp"
 
-#include <iostream>
-
 EntityManager::EntityManager(ResourceManager& resourceManager)
 	: levelManager(LevelManager()),
 	player(Player(
@@ -31,6 +29,11 @@ void EntityManager::update(float deltaTime)
 	if (clock.getElapsedTime() > sf::seconds(1)){
 		clock.restart();
 		levelManager.changeTexture();
+
+		//Not the best way to do this, but it works for now
+		for (auto& enemy : levelManager.levelEnemies) {
+			enemy.update(deltaTime);
+		}
 	}
 
 	if (!levelManager.isActiveLevel()) {
@@ -39,9 +42,10 @@ void EntityManager::update(float deltaTime)
 	//Player
 	player.update(deltaTime);
 
-	const auto lvlEnem = levelManager.levelEnemies;
-	for (int i = 0; i < lvlEnem.size(); i++) {
-		if (player.getShootBounds().findIntersection(lvlEnem[i].getBounds())) {
+	// IS HORRIBLE, BUT IT WORKS... I'm sorry
+	for (int i = 0; i < levelManager.levelEnemies.size(); i++) {
+
+		if (player.getShootBounds().findIntersection(levelManager.levelEnemies[i].getBounds())) {
 			player.enemyGetHit();
 			levelManager.isEnemyDead[i]	= true;
 			levelManager.levelEnemies[i].setPosition(sf::Vector2f(-100.f, -100.f)); // Move enemy off-screen
