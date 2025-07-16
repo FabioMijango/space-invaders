@@ -15,6 +15,8 @@ public:
     sf::Vector2f getPosition() const override;
     void setPosition(const sf::Vector2f& position);
 
+    void changeDirection(const short newDir);
+
     sf::FloatRect getBounds() const override;
 
     void changeTexture(int textureIndex);

@@ -19,6 +19,10 @@ void Enemy::update(float deltaTime)
         ));
 }
 
+void Enemy::changeDirection(const short newDir) {
+    direction = newDir;
+}
+
 void Enemy::changeTexture(int textureIndex) {
     sprite.setTexture(textures[textureIndex]);
 }
