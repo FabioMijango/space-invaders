@@ -36,6 +36,15 @@ void EntityManager::update(float deltaTime)
 		for (auto& enemy : _enemies) {
 			enemy.update(deltaTime);
 		}
+
+		//Double loop... I know, I know... but it just executes every second
+		for (auto& enemy : _enemies) {
+			if (enemy.getPosition().x > WINDOW_WIDTH - 150.f ) {
+				levelManager.changeEnemyDirection(LEFT);
+			} else if (enemy.getPosition().x < 0.f) {
+				levelManager.changeEnemyDirection(RIGHT);
+			}
+		}
 	}
 
 	if (!levelManager.isActiveLevel()) {
