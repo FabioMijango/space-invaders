@@ -4,7 +4,7 @@
 Enemy::Enemy(std::vector<sf::Texture>& textures, sf::Vector2f position, int health )
     : sprite(sf::Sprite(textures[1])),
         textures(textures),
-        direction(1),
+        direction(RIGHT),
         health(health)
 {
     sprite.setScale({7.f, 7.f});
@@ -19,7 +19,7 @@ void Enemy::update(float deltaTime)
         ));
 }
 
-void Enemy::changeDirection(const short newDir) {
+void Enemy::changeDirection(const Direction newDir) {
     direction = newDir;
 }
 

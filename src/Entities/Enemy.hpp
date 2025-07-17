@@ -2,6 +2,10 @@
 
 #include "Entity.hpp"
 
+enum Direction {
+    LEFT = -1,
+    RIGHT = 1
+};
 
 class Enemy : public Entity {
 public:
@@ -15,7 +19,7 @@ public:
     sf::Vector2f getPosition() const override;
     void setPosition(const sf::Vector2f& position);
 
-    void changeDirection(const short newDir);
+    void changeDirection(Direction newDir);
 
     sf::FloatRect getBounds() const override;
 
