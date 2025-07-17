@@ -18,6 +18,7 @@ public:
     std::vector<bool> isEnemyDead;
 
     void changeTexture();
+    void changeEnemyDirection(Direction newDir);
 
 private:
     std::vector<Level> levels;

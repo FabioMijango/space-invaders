@@ -43,6 +43,12 @@ void LevelManager::startLevel(int index, const std::vector<Enemy>& enemiesVector
     activeLevel = true;
 }
 
+void LevelManager::changeEnemyDirection(const Direction newDir) {
+    for (auto& enemy : levelEnemies) {
+        enemy.changeDirection(newDir);
+    }
+}
+
 void LevelManager::changeTexture() {
     for (int i = 0; i < levelEnemies.size(); i++) {
         levelEnemies[i].changeTexture(textureCounter);
