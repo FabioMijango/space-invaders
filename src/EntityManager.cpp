@@ -14,11 +14,10 @@ EntityManager::EntityManager(ResourceManager& resourceManager)
 
 	// Initialize enemies
 	for (int i = resourceManager.enemyTextures.size() - 1; i >= 0; i--) {
-		enemies.push_back(
-			Enemy(
+		enemies.emplace_back(
 				resourceManager.enemyTextures[i],
 				sf::Vector2f(100.f * 1, 100.f),
-				1) // TODO Implement health system
+				1 // TODO Implement health system
 		);
 	}
 }
