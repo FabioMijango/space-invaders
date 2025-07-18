@@ -31,16 +31,18 @@ void EntityManager::update(float deltaTime)
 		clock.restart();
 		levelManager.changeTexture();
 
-		//Not the best way to do this, but it works for now
-		for (auto& enemy : _enemies) {
-			enemy.update(deltaTime);
+		for (int i = 0; i < _enemies.size(); i++) {
+			if (levelManager.isEnemyDead[i]) {
+				continue; // Skip dead enemies
+			}
+			_enemies[i].update(deltaTime);
 		}
 
 		//Double loop... I know, I know... but it just executes every second
 		for (auto& enemy : _enemies) {
 			if (enemy.getPosition().x > WINDOW_WIDTH - 150.f ) {
 				levelManager.changeEnemyDirection(LEFT);
-			} else if (enemy.getPosition().x < 0.f) {
+			} else if (enemy.getPosition().x < 150.f) {
 				levelManager.changeEnemyDirection(RIGHT);
 			}
 		}
@@ -58,7 +60,7 @@ void EntityManager::update(float deltaTime)
 		if (player.getShootBounds().findIntersection(_enemies[i].getBounds())) {
 			player.enemyGetHit();
 			levelManager.isEnemyDead[i]	= true;
-			_enemies[i].setPosition(sf::Vector2f(-100.f, -100.f)); // Move enemy off-screen
+			_enemies[i].setPosition(sf::Vector2f(WINDOW_WIDTH / 2, -200.f)); // Move enemy off-screen
 		}
 	}
 }
