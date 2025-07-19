@@ -21,6 +21,7 @@ add_executable(
     src/Entities/Enemy.cpp
     src/Entities/Level.cpp
     src/LevelManager.cpp
+    src/Entities/Structure.cpp
 )
    
 target_compile_features(main PRIVATE cxx_std_17)
