@@ -4,8 +4,8 @@
 
 
 
-Renderer::Renderer(sf::RenderWindow& w, ResourceManager& rm, Player& p, std::vector<Enemy>& enemy, std::vector<bool>& isEnemyDead)
-   : window(w), resourceManager(rm), player(p), enemy(enemy), isEnemyDead(isEnemyDead)
+Renderer::Renderer(sf::RenderWindow& w, ResourceManager& rm, Player& p, std::vector<Enemy>& enemy, std::vector<bool>& isEnemyDead, std::vector<Structure>& structures)
+   : window(w), resourceManager(rm), player(p), enemy(enemy), isEnemyDead(isEnemyDead), structures(structures)
 {
 }
 
@@ -31,6 +31,10 @@ void Renderer::drawEntities()
 			continue; // Skip dead enemies
 		}
 		enemy[i].render(window);
+	}
+
+	for (auto& structure : structures) {
+		structure.render(window);
 	}
 }
 
