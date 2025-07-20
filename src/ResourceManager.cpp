@@ -52,7 +52,7 @@ void ResourceManager::loadTextures()
 
 
 	//Structure textures
-	for (int i = 0; i < STRUCTURE_QUANTITY; i++) {
+	for (int i = 0; i < STRUCTURE_SPRITES_QUANTITY; i++) {
 		sf::Texture structureTexture = loadTexture(
 			std::string(RES) + std::string(STRUCTURE_SPRITES),
 			sf::IntRect(
