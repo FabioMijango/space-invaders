@@ -9,9 +9,12 @@ public:
     void update(float deltaTime) override;
     void render(sf::RenderWindow& window) override;
 
+    sf::Vector2f getPosition() const override;
     sf::FloatRect getBounds() const override;
 
     void changeTexture(int textureIndex);
+
+    std::vector<sf::Texture>& getTextures();
 
 private:
     sf::Sprite sprite;
