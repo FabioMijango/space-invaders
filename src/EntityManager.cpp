@@ -4,7 +4,7 @@ EntityManager::EntityManager(ResourceManager& resourceManager)
 	: levelManager(LevelManager()),
 	player(Player(
 		resourceManager.playerTexture,
-		sf::Vector2f(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 100),
+		sf::Vector2f(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT - 100),
 		resourceManager.shootTexture
 		)),
 	resourceManager(resourceManager)
@@ -60,11 +60,14 @@ void EntityManager::update(float deltaTime)
 		if (player.getShootBounds().findIntersection(_enemies[i].getBounds())) {
 			player.enemyGetHit();
 			levelManager.isEnemyDead[i]	= true;
-			_enemies[i].setPosition(sf::Vector2f(WINDOW_WIDTH / 2, -200.f)); // Move enemy off-screen
+			_enemies[i].setPosition(sf::Vector2f(WINDOW_WIDTH / 2.f, -200.f)); // Move enemy off-screen
 		}
 	}
 }
 
+std::vector<Structure> & EntityManager::getStructures() {
+	return structures;
+}
 
 Player& EntityManager::getPlayer()
 {

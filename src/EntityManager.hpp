@@ -8,6 +8,7 @@
 #include "./Entities/Entity.hpp"
 #include "./Entities/Player.hpp"
 #include "./Entities/Enemy.hpp"
+#include "./Entities/Structure.hpp"
 #include "./Utils/Constants.hpp"
 
 
@@ -23,6 +24,7 @@ public:
 	Player& getPlayer();
 
 	std::vector<Enemy>& getEnemies();
+	std::vector<Structure>& getStructures();
 
 	Level& getCurrentLevel();
 
@@ -36,7 +38,7 @@ private:
 
 	Player player;
 	std::vector<Enemy> enemies;
-	//std::vector<Structure> structures;
+	std::vector<Structure> structures;
 
 	ResourceManager& resourceManager;
 
