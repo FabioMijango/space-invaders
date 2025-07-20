@@ -16,7 +16,7 @@ Level& LevelManager::getLevel(const int index) {
 
 }
 
-void LevelManager::startLevel(int index, const std::vector<Enemy>& enemiesVector) {
+void LevelManager::startLevel(int index, const std::vector<Enemy> &enemiesVector, std::vector<sf::Texture> &structuresVector) {
     if (activeLevel)
         return;
     //TODO Assuming index is valid, fix later
@@ -41,6 +41,16 @@ void LevelManager::startLevel(int index, const std::vector<Enemy>& enemiesVector
     isEnemyDead.clear();
     isEnemyDead.resize(levelEnemies.size(), false);
     activeLevel = true;
+
+
+    structures.clear();
+    for ( int i = 0; i < STRUCTURE_QUANTITY; i++) {
+        structures.emplace_back(
+            structuresVector,
+            sf::Vector2f( WINDOW_WIDTH / 3.f * i, WINDOW_HEIGHT -250.f)
+            );
+    }
+
 }
 
 void LevelManager::changeEnemyDirection(const Direction newDir) {

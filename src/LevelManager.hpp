@@ -4,16 +4,18 @@
 
 #include "./Entities/Enemy.hpp"
 #include "./Entities/Level.hpp"
+#include "Entities/Structure.hpp"
 
 class LevelManager {
 public:
     LevelManager();
     Level& getLevel(int index);
 
-    void startLevel(int index, const std::vector<Enemy>& enemiesVector);
+    void startLevel(int index, const std::vector<Enemy> &enemiesVector, std::vector<sf::Texture> &structuresVector);
 
     bool isActiveLevel() const;
     std::vector<Enemy> levelEnemies;
+    std::vector<Structure> structures;
 
     std::vector<bool> isEnemyDead;
 
