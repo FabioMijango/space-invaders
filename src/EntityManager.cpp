@@ -49,7 +49,7 @@ void EntityManager::update(float deltaTime)
 	}
 
 	if (!levelManager.isActiveLevel()) {
-		levelManager.startLevel(currentLevel, enemies);
+		levelManager.startLevel(currentLevel, enemies, resourceManager.structureTextures);
 	}
 	//Player
 	player.update(deltaTime);
@@ -65,9 +65,10 @@ void EntityManager::update(float deltaTime)
 	}
 }
 
-std::vector<Structure> & EntityManager::getStructures() {
-	return structures;
+LevelManager & EntityManager::getLevelManager() {
+	return levelManager;
 }
+
 
 Player& EntityManager::getPlayer()
 {

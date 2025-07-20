@@ -24,9 +24,9 @@ public:
 	Player& getPlayer();
 
 	std::vector<Enemy>& getEnemies();
-	std::vector<Structure>& getStructures();
 
 	Level& getCurrentLevel();
+	LevelManager& getLevelManager();
 
 	std::vector<Enemy>& getLevelEnemies();
 	std::vector<bool>& getIsEnemyDead();
@@ -38,7 +38,7 @@ private:
 
 	Player player;
 	std::vector<Enemy> enemies;
-	std::vector<Structure> structures;
+	// std::vector<Structure> structures;
 
 	ResourceManager& resourceManager;
 
